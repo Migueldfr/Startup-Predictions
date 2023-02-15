@@ -4,3 +4,4 @@ numpy
 seaborn
 plotly
 scikit-learn
+streamlib
