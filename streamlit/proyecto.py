@@ -58,9 +58,9 @@ def Modelo():
         st.sidebar.header('Paramentros personalizados')
         # Funcion para poner los parametros del sidebar
         def user_input_parameters():
-            relationships = st.sidebar.slider('Nº Relaciones', 1,64)
-            age_last_milestone_year = st.sidebar.slider('Año de la empresa en el último hito', 1,50)
-            milestones = st.sidebar.slider('Hitos', 1,50)
+            relationships = st.sidebar.slider('Nº Relaciones', 0,64)
+            age_last_milestone_year = st.sidebar.slider('Año de la empresa en el último hito', 0,50)
+            milestones = st.sidebar.slider('Hitos', 0,50)
             Top500 = st.sidebar.selectbox('TOP 500?', ('Sí', 'No'), index=0)
             if Top500 == 'Sí':
                 Top500 = 1
@@ -70,29 +70,29 @@ def Modelo():
             relation10 = st.sidebar.selectbox('Mas de 10 relaciones?', ('Sí', 'No'), index =0)
             if relation10 == 'Sí':
                 relation10 = 1
-            else:
+            if relation10 =='No':
                 relation10 = 0
-            age_first_milestone_year = st.sidebar.slider('Año de la empresa en el primer hito', 1,10)
+            age_first_milestone_year = st.sidebar.slider('Año de la empresa en el primer hito', 0,10)
             Has_roundABCD = st.sidebar.selectbox('Tiene ronda A B C D', ('Sí', 'No'),index=0)
             if Has_roundABCD == 'Sí':
                 Has_roundABCD = 1
-            else:
+            if Has_roundABCD =='No':
                 Has_roundABCD = 0
-            funding_rounds = st.sidebar.slider('Numero de rondas', 1,10)
+            funding_rounds = st.sidebar.slider('Numero de rondas', 0,10)
             has_roundB = st.sidebar.selectbox('Tiene la ronda B?', ('Sí', 'No'))
             if has_roundB == 'Sí':
                 has_roundB = 1
-            else:
+            if has_roundB =='No':
                 has_roundB = 0
             milesto_4 = st.sidebar.selectbox('Tiene menos de 4 hitos?', ('Sí', 'No'))
             if milesto_4 == 'Sí':
                 milesto_4 = 1
-            else:
-                milesto4 = 0
+            if milesto_4 =='No':
+                milesto_4 = 0
             million = st.sidebar.selectbox('Alguno de sus hitos es relacionado con la palabra millones', ('Sí', 'No'))
             if million == 'Sí':
                 million = 1
-            else:
+            if million =='No':
                 million = 0
             data = {'relationships' : relationships,
                     'age_last_milestone_year':age_last_milestone_year,
@@ -132,10 +132,6 @@ if menu == "Home":
     st.title("Predicciones Startups EEUU")
 
     st.image(img, use_column_width='auto')
-    with st.expander('Que vamos a abordar?'):
-        st.write("1. Vamos a predecir la posibilidades de invertir en una empresa")
-        st.write("2. Que variable es la mas importante en nuestro modelo")
-        st.write("3. Que fiabilidad tiene nuestro modelo")
     
     print('----------------------------------')
 
@@ -143,13 +139,13 @@ if menu == "Home":
     st.title("Estado de las startups")
     
     st.subheader("Closed startups: " + str(startups['status'].value_counts()[0]))
-    st.subheader("Acquired startups: " + str(startups['status'].value_counts()[1]))
+    st.subheader("Operating startups: " + str(startups['status'].value_counts()[1]))
 
     status = startups['status'].value_counts(normalize=True)
     colors = sns.color_palette("Spectral").as_hex()
 
 
-    fig = px.pie(values = status.values, names = ['Acquired', 'Closed'], color_discrete_sequence=colors)
+    fig = px.pie(values = status.values, names = ['Operating', 'Closed'], color_discrete_sequence=colors)
     st.plotly_chart(fig)
 
     st.markdown(" As we can see there is more Acquired companies than closed, but is affordable at the moment. It isn,t unbalanced, so we can work on it, I tried models with undersampling and oversampling but no changes happened. ")
@@ -189,7 +185,7 @@ if menu == "Home":
     color = sns.set_palette("Spectral")
     fig.update_layout(barmode='group',bargroupgap=0.1)
     fig.update_layout(title_text='Distribution Success')
-    fig.update_traces(marker=dict(color='lightsalmon'), selector=dict(name='Acquired'))
+    fig.update_traces(marker=dict(color='lightsalmon'), selector=dict(name='Operating'))
     fig.update_traces(marker=dict(color='indianred'), selector=dict(name='Closed'))
 
     adquired_trace = fig.data[1]
@@ -218,7 +214,7 @@ if menu == "Home":
     fig.add_trace(go.Bar(
         x=age['age'].values,
         y=age['Acquired'].values,
-        name='Acquired',
+        name='Operating',
         marker_color='lightsalmon'
     ))
 
@@ -265,7 +261,7 @@ if menu == "Home":
     fig.add_trace(go.Bar(
         x=funding['funding_rounds'].values,
         y=funding['Acquired'].values,
-        name='Adquired',
+        name='Operating',
         marker_color='lightsalmon'
     ))
 
@@ -294,7 +290,7 @@ elif menu == "Filtros":
                 options = startups['milestones'].unique(),
                 default= startups['milestones'].unique())
 
-    category = st.sidebar.multiselect("Catrgoria: ",
+    category = st.sidebar.multiselect("Categoria: ",
                 options = startups['category_code'].unique(),
                 default= startups['category_code'].unique())
 
@@ -320,13 +316,21 @@ elif menu == "Filtros":
 
     relationships = (df_seleccion.groupby(['state_code']).mean()[['relationships']].sort_values(by = 'relationships'))
 
-    fig_relation_cliente = px.bar(relationships, x = 'relationships', y = relationships.index, orientation = 'h', title = '<b>Relation por state<b>', template = 'plotly_white')
+    fig_relation_cliente = px.bar(relationships, x = 'relationships', y = relationships.index, orientation = 'h', title = '<b>Relaciones de media por estado<b>', template = 'plotly_white')
     
     fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(0,0,0,0)', xaxis = (dict(showgrid = False)))
 
     st.plotly_chart(fig_relation_cliente,use_container_width=True)
 
     st.markdown('---')
+
+    anio = (df_seleccion.groupby(['state_code']).mean()[['age']].sort_values(by = 'age'))
+
+    fig_anio_cliente = px.bar(anio, x = 'age', y = anio.index, orientation = 'h', title = '<b>Años de media por estado<b>', template = 'plotly_white')
+
+    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(255,0,0,0)', xaxis = (dict(showgrid = False)))
+
+    st.plotly_chart(fig_relation_cliente,use_container_width=True)
 
 elif menu == 'Modelo':
     Modelo()
