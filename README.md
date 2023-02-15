@@ -10,7 +10,7 @@ Como en todos los negocios, hay varios perfiles de clientes y este analisis no v
 
 Por otro lado, hay un perfil claramente mas permisivo, y lo que quiere es tener a las posibles ganadoras en el punto de mira, pero no le importa seguir alguna que no sea ganadora pero que le haga aprender, y esto en terminos monetarios podriamos decir que es capaz de reducir su beneficio singular por seguir apostando por el conjunto de aquellas que pueden prosperar y las que seguro que van a ser gaandoras, aqui hablaremos del termino *RECALL*
 
-Con esto he podido llegar a la conclusion que me han funcionado dos modelos de apredizaje supervisado, es este caso en uno, primo la recall, y en otro, la precision, como ya os he dicho en los apartados de arriba.
+Con esto he podido llegar a la conclusion que me han funcionado dos modelos de apredizaje supervisado, en uno; primo la recall, y en otro; la precision, como ya os he dicho en los apartados de arriba.
 
 Como todo analisis y estudio cuantos mas datos de CALIDAD tengas, mas productivo y beneficioso para tu modelo es, yo por mi parte voy a dejar abierto este estudio porque desde luego, tiene mucho mas que brindarnos y estoy seguro que nos servira de ayuda en muchos momentos de incertidumbre.
 
