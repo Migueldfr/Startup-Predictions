@@ -1,6 +1,5 @@
 pandas
 matplotlib
-pyexpat
 numpy
 seaborn
 plotly.graph_objs
