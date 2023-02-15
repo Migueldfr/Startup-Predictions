@@ -12,20 +12,20 @@ from plotly.subplots import make_subplots
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-with open('model_miguel_recall.pkl', 'rb') as re:
+with open('streamlit/model_miguel_recall.pkl', 'rb') as re:
     recall_model = pickle.load(re)
     
-with open('model_miguel_precision.pkl', 'rb') as pre:
+with open('streamlit/model_miguel_precision.pkl', 'rb') as pre:
     precision_model = pickle.load(pre)
 
 st.set_page_config(page_title="Startups", page_icon="money_with_wings:", layout="wide")
 
-startups = "startupready2.csv"
+startups = "streamlit/startupready2.csv"
 startups = pd.read_csv(startups, index_col='Unnamed: 0')
 
 startups.rename(columns={"latidtud":"lat", "longitud":"lon"}, inplace=True)
 
-img = Image.open('/Users/migueldefrutos/Documents/Bootcamp/Data_Bridge /Alumno /ds_thebridge_11_22/Entregas/Machine/Startups/Imagenes/introfoto.jpeg')
+img = Image.open('streamlit/introfoto.jpeg')
 
 # Let,s do the feature engineering to get ready all features
 
