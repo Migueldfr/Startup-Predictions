@@ -3,5 +3,4 @@ matplotlib
 numpy
 seaborn
 plotly
-pickle
 sklearn
