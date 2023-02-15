@@ -176,12 +176,12 @@ if menu == "Home":
 
     rate_success = startups.groupby(['range_relation','status']).agg({'iD':'count'}).reset_index()
     rate_success = pd.pivot_table(rate_success, values = 'iD',columns= ['status'], index= ['range_relation']).reset_index()
-    rate_success.columns = ['relationships','Closed','Acquired']
-    rate_success['Total'] = rate_success['Closed'] + rate_success['Acquired'].astype(int)
-    rate_success['Success Rate'] = round((rate_success['Acquired'] / rate_success['Total'])*100,2).astype(float)
+    rate_success.columns = ['relationships','Closed','Operating']
+    rate_success['Total'] = rate_success['Closed'] + rate_success['Operating'].astype(int)
+    rate_success['Success Rate'] = round((rate_success['Operating'] / rate_success['Total'])*100,2).astype(float)
     rate_success = rate_success.sort_values(by= 'Success Rate')
 
-    fig = px.bar(rate_success, x='relationships', y=['Closed','Acquired'])
+    fig = px.bar(rate_success, x='relationships', y=['Closed','Operating'])
     color = sns.set_palette("Spectral")
     fig.update_layout(barmode='group',bargroupgap=0.1)
     fig.update_layout(title_text='Distribution Success')
