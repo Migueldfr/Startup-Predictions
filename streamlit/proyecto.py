@@ -328,9 +328,9 @@ elif menu == "Filtros":
 
     fig_anio_cliente = px.bar(anio, x = 'age', y = anio.index, orientation = 'h', title = '<b>Años de media por estado<b>', template = 'plotly_white')
 
-    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(255,0,0,0)', xaxis = (dict(showgrid = False)))
+    fig_anio_cliente.update_layout(plot_bgcolor = 'rgba(255,0,0,0)', xaxis = (dict(showgrid = False)))
 
-    st.plotly_chart(fig_relation_cliente,use_container_width=True)
+    st.plotly_chart(fig_anio_cliente,use_container_width=True)
 
 elif menu == 'Modelo':
     Modelo()
