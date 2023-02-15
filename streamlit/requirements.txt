@@ -5,4 +5,4 @@ seaborn
 plotly
 scikit-learn
 --extra-index-url https://dl.fbaipublicfiles.com/detectron2/wheels/cu113/torch1.10/index.html
-
+streamlib
