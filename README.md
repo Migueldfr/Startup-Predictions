@@ -1,5 +1,5 @@
 # Repositorio con Prediciones de exito o fracaso antes de invertir.
-(------)
+![me](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elcinedeloqueyotediga.net%2Fdiario%2Fshow%2Fconexion-oscar-2014-%25E2%2580%259Cel-lobo-de-wall-street%25E2%2580%259D-juergas-excesos-y-codicia-en-lo-nuevo-de-scorsese-y-dicaprio&psig=AOvVaw1GwyuUZUh2IKka0qqV-tAd&ust=1676506378002000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDa0Yqflv0CFQAAAAAdAAAAABAJ)
 ## Creado por Miguel De Frutos
 
 A veces creamos en tener la pocima perfecta para saber si una empresa va a ser rentable o no, que engagement tiene, cuantos inversores tiene, cuanta cantidad de dinero le han sido invertida, rondas de financiacion...pero esto como todo, va despacio y necesita su tiempo de analisis.
