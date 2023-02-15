@@ -12,10 +12,10 @@ from plotly.subplots import make_subplots
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-with open('../model_miguel_recall.pkl', 'rb') as re:
+with open('model_miguel_recall.pkl', 'rb') as re:
     recall_model = pickle.load(re)
     
-with open('../model_miguel_precision.pkl', 'rb') as pre:
+with open('model_miguel_precision.pkl', 'rb') as pre:
     precision_model = pickle.load(pre)
 
 st.set_page_config(page_title="Startups", page_icon="money_with_wings:", layout="wide")
