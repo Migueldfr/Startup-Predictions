@@ -2,11 +2,6 @@ pandas
 matplotlib
 numpy
 seaborn
-plotly.graph_objs
-plotly.express
-plotly.subplots
+plotly
 pickle
-sklearn.metrics
-sklearn.model_selection
-sklearn.ensemble
-sklearn.metrics
+sklearn
