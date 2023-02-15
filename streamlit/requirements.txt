@@ -1,8 +1,13 @@
 pandas
-matplotlib.pyplot
+matplotlib
+pyexpat
 numpy
 seaborn
 plotly.graph_objs
 plotly.express
 plotly.subplots
 pickle
+sklearn.metrics
+sklearn.model_selection
+sklearn.ensemble
+sklearn.metrics
