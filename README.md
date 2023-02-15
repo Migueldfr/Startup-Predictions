@@ -1,5 +1,5 @@
 # Repositorio con Prediciones de exito o fracaso antes de invertir.
-(------)
+![me](https://www.cinconoticias.com/wp-content/uploads/El-Lobo-de-Wall-Street.jpg)
 ## Creado por Miguel De Frutos
 
 A veces creamos en tener la pocima perfecta para saber si una empresa va a ser rentable o no, que engagement tiene, cuantos inversores tiene, cuanta cantidad de dinero le han sido invertida, rondas de financiacion...pero esto como todo, va despacio y necesita su tiempo de analisis.
