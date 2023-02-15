@@ -1,0 +1,8 @@
+pandas
+matplotlib.pyplot
+numpy
+seaborn
+plotly.graph_objs
+plotly.express
+plotly.subplots
+pickle

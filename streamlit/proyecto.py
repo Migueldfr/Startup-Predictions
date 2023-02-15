@@ -14,7 +14,7 @@ from sklearn.preprocessing import LabelEncoder
 
 with open('../model_miguel_recall.pkl', 'rb') as re:
     recall_model = pickle.load(re)
-
+    
 with open('../model_miguel_precision.pkl', 'rb') as pre:
     precision_model = pickle.load(pre)
 
