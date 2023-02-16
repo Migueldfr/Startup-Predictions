@@ -339,9 +339,13 @@ elif menu == "Filtros":
 
     miles = (df_seleccion.groupby(['state_code']).mean()[['milestones']].sort_values(by = 'milestones'))
 
-    fig_miles_cliente = px.bar(miles, x = 'milestones', y = miles.index, orientation = 'h', title = '<b>Hitos de media por estado<b>', template = 'plotly_white')
+    fig_miles_cliente = px.bar(miles, x = 'milestones', y = miles.index, orientation = 'h', title = '<b>Hitos de media por estado<b>', template = 'plotly_white',color='milestones', color_continuous_scale='RdBu',
+                           height=500, width=800, margin=dict(l=50, r=50, b=100, t=100))
 
-    fig_miles_cliente.update_layout(plot_bgcolor = 'rgba(255,158,110)', xaxis = (dict(showgrid = False)))
+    fig_miles_cliente.update_layout(plot_bgcolor = 'rgba(255,158,110)', xaxis=dict(showgrid=False, tickfont=dict(size=12)),
+                                yaxis=dict(showgrid=False, tickfont=dict(size=12)),
+                                coloraxis_colorbar=dict(title='Media de hitos'),
+                                bargap=0.3)
 
     st.plotly_chart(fig_miles_cliente,use_container_width=True)
 
