@@ -129,7 +129,7 @@ def Modelo():
 
 menu = st.sidebar.selectbox("Selecciona la página", ['Home','Modelo','Filtros'])
 
-st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
+st.sidebar("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
 
 if menu == "Home":
     st.title("Predicciones Startups EEUU")
