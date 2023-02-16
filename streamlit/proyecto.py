@@ -148,17 +148,18 @@ if menu == "Home":
     fig = px.pie(values = status.values, names = ['Operating', 'Closed'], color_discrete_sequence=colors)
     st.plotly_chart(fig)
 
-    st.markdown(" As we can see there is more Acquired companies than closed, but is affordable at the moment. It isn,t unbalanced, so we can work on it, I tried models with undersampling and oversampling but no changes happened. ")
+    st.markdown('Como podemos ver no esta desbanlanceado, mas adelante he probado a hacer undersamplig y oversamplin pero no hubo ningun cambio notable')
+    #st.markdown(" As we can see there is more Acquired companies than closed, but is affordable at the moment. It isn,t unbalanced, so we can work on it, I tried models with undersampling and oversampling but no changes happened. ")
 
     print('----------------------------------')
 
-    st.title("Distribucion de las startups por estados ")
+    st.title("Distribución de las startups por estados ")
 
     st.write(startups.head(5))
     st.map(startups)
 
     states = startups['state_code'].value_counts()[:10]
-    fig_states = px.pie(values = states.values, names = states.index, title = 'Top 10 número de startups')
+    fig_states = px.pie(values = states.values, names = states.index, title = 'Top 10 cantidad de startups')
 
     top10 = startups['category_code'].value_counts()[:10]
     fig_top10 = px.pie(values=top10, names = top10.index.map(str.capitalize), title="Top 10 mercados mas valorados $")
@@ -176,12 +177,12 @@ if menu == "Home":
 
     rate_success = startups.groupby(['range_relation','status']).agg({'iD':'count'}).reset_index()
     rate_success = pd.pivot_table(rate_success, values = 'iD',columns= ['status'], index= ['range_relation']).reset_index()
-    rate_success.columns = ['relationships','Closed','Operating']
+    rate_success.columns = ['Rango','Closed','Operating']
     rate_success['Total'] = rate_success['Closed'] + rate_success['Operating'].astype(int)
     rate_success['Success Rate'] = round((rate_success['Operating'] / rate_success['Total'])*100,2).astype(float)
     rate_success = rate_success.sort_values(by= 'Success Rate')
 
-    fig = px.bar(rate_success, x='relationships', y=['Closed','Operating'])
+    fig = px.bar(rate_success, x='Rango', y=['Closed','Operating'])
     color = sns.set_palette("Spectral")
     fig.update_layout(barmode='group',bargroupgap=0.1)
     fig.update_layout(title_text='Distribution Success')
