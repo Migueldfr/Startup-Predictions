@@ -319,9 +319,13 @@ elif menu == "Filtros":
 
     relationships = (df_seleccion.groupby(['state_code']).mean()[['relationships']].sort_values(by = 'relationships'))
 
-    fig_relation_cliente = px.bar(relationships, x = 'relationships', y = relationships.index, orientation = 'h', title = '<b>Relaciones de media por estado<b>', template = 'plotly_white')
+    fig_relation_cliente = px.bar(relationships, x = 'relationships', y = relationships.index, orientation = 'h', title = '<b>Relaciones de media por estado<b>', template = 'plotly_white',color='milestones', color_continuous_scale='Peach',
+                           height=500, width=800)
     
-    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(255,96,59)', xaxis = (dict(showgrid = False)))
+    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(255,96,59)', xaxis = dict(showgrid = False,tickfont=dict(size=12)),
+                                yaxis=dict(showgrid=False, tickfont=dict(size=12)),
+                                coloraxis_colorbar=dict(title='Media de relaciones'),
+                                bargap=0.3)
 
     st.plotly_chart(fig_relation_cliente,use_container_width=True)
 
@@ -329,9 +333,13 @@ elif menu == "Filtros":
 
     anio = (df_seleccion.groupby(['state_code']).mean()[['age']].sort_values(by = 'age'))
 
-    fig_anio_cliente = px.bar(anio, x = 'age', y = anio.index, orientation = 'h', title = '<b>Años de media por estado<b>', template = 'plotly_white')
+    fig_anio_cliente = px.bar(anio, x = 'age', y = anio.index, orientation = 'h', title = '<b>Años de media por estado<b>', template = 'plotly_white',color='milestones', color_continuous_scale='Oranges',
+                           height=500, width=800)
 
-    fig_anio_cliente.update_layout(plot_bgcolor = 'rgba(255,128,84)', xaxis = (dict(showgrid = False)))
+    fig_anio_cliente.update_layout(plot_bgcolor = 'rgba(255,128,84)', xaxis = dict(showgrid = False, tickfont=dict(size=12)),
+                                yaxis=dict(showgrid=False, tickfont=dict(size=12)),
+                                coloraxis_colorbar=dict(title='Media de años'),
+                                bargap=0.3)
 
     st.plotly_chart(fig_anio_cliente,use_container_width=True)
 
@@ -339,7 +347,7 @@ elif menu == "Filtros":
 
     miles = (df_seleccion.groupby(['state_code']).mean()[['milestones']].sort_values(by = 'milestones'))
 
-    fig_miles_cliente = px.bar(miles, x = 'milestones', y = miles.index, orientation = 'h', title = '<b>Hitos de media por estado<b>', template = 'plotly_white',color='milestones', color_continuous_scale='RdBu',
+    fig_miles_cliente = px.bar(miles, x = 'milestones', y = miles.index, orientation = 'h', title = '<b>Hitos de media por estado<b>', template = 'plotly_white',color='milestones', color_continuous_scale='OrRd',
                            height=500, width=800)
 
     fig_miles_cliente.update_layout(plot_bgcolor = 'rgba(255,158,110)', xaxis=dict(showgrid=False, tickfont=dict(size=12)),
