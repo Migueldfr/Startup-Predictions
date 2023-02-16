@@ -148,7 +148,7 @@ if menu == "Home":
     fig = px.pie(values = status.values, names = ['Operating', 'Closed'], color_discrete_sequence=colors)
     st.plotly_chart(fig)
 
-    st.markdown('Como podemos ver no esta desbanlanceado, mas adelante he probado a hacer undersamplig y oversamplin pero no hubo ningun cambio notable')
+    st.markdown('Como podemos ver no esta desbanlanceado, mas adelante he probado a hacer undersamplig y oversamplin pero no hubo ningun cambio notable. Por lo que, por el momento se puede trabajar con el.')
     #st.markdown(" As we can see there is more Acquired companies than closed, but is affordable at the moment. It isn,t unbalanced, so we can work on it, I tried models with undersampling and oversampling but no changes happened. ")
 
     print('----------------------------------')
@@ -177,12 +177,12 @@ if menu == "Home":
 
     rate_success = startups.groupby(['range_relation','status']).agg({'iD':'count'}).reset_index()
     rate_success = pd.pivot_table(rate_success, values = 'iD',columns= ['status'], index= ['range_relation']).reset_index()
-    rate_success.columns = ['Rango','Closed','Operating']
+    rate_success.columns = ['Range','Closed','Operating']
     rate_success['Total'] = rate_success['Closed'] + rate_success['Operating'].astype(int)
     rate_success['Success Rate'] = round((rate_success['Operating'] / rate_success['Total'])*100,2).astype(float)
     rate_success = rate_success.sort_values(by= 'Success Rate')
 
-    fig = px.bar(rate_success, x='Rango', y=['Closed','Operating'])
+    fig = px.bar(rate_success, x='Range', y=['Closed','Operating'])
     color = sns.set_palette("Spectral")
     fig.update_layout(barmode='group',bargroupgap=0.1)
     fig.update_layout(title_text='Distribution Success')
@@ -246,6 +246,8 @@ if menu == "Home":
 
     print('----------------------------------')
 
+    st.title("Rondas de inversión ")
+
     funding = startups.groupby(['funding_rounds','status'])[['status']].count().rename(columns={'status':'count'}).reset_index()
     funding = pd.pivot_table(funding, values = 'count',columns= ['status'], index= ['funding_rounds']).reset_index()
     funding.columns = ['funding_rounds','Closed','Acquired']
@@ -272,7 +274,7 @@ if menu == "Home":
     adquired_trace = fig.data[1]
     adquired_trace.update(text=funding['Acquired'], texttemplate='%{text:.0f}', textposition='outside')
 
-    fig.update_layout(title_text='Funding Rounds',xaxis=dict(title = 'Total funds' , tickmode='array', tickvals=x_values),barmode='group')
+    fig.update_layout(title_text='Funding rounds',xaxis=dict(title = 'Total funds' , tickmode='array', tickvals=x_values),barmode='group')
 
     st.plotly_chart(fig,use_container_width=True)
 
@@ -319,7 +321,7 @@ elif menu == "Filtros":
 
     fig_relation_cliente = px.bar(relationships, x = 'relationships', y = relationships.index, orientation = 'h', title = '<b>Relaciones de media por estado<b>', template = 'plotly_white')
     
-    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(0,0,0,0)', xaxis = (dict(showgrid = False)))
+    fig_relation_cliente.update_layout(plot_bgcolor = 'rgba(255,96,59)', xaxis = (dict(showgrid = False)))
 
     st.plotly_chart(fig_relation_cliente,use_container_width=True)
 
@@ -329,9 +331,19 @@ elif menu == "Filtros":
 
     fig_anio_cliente = px.bar(anio, x = 'age', y = anio.index, orientation = 'h', title = '<b>Años de media por estado<b>', template = 'plotly_white')
 
-    fig_anio_cliente.update_layout(plot_bgcolor = 'rgba(255,0,0,0)', xaxis = (dict(showgrid = False)))
+    fig_anio_cliente.update_layout(plot_bgcolor = 'rgba(255,128,84)', xaxis = (dict(showgrid = False)))
 
     st.plotly_chart(fig_anio_cliente,use_container_width=True)
+
+    st.markdown('---')
+
+    miles = (df_seleccion.groupby(['state_code']).mean()[['milestones']].sort_values(by = 'milestones'))
+
+    fig_miles_cliente = px.bar(miles, x = 'milestones', y = miles.index, orientation = 'h', title = '<b>Hitos de media por estado<b>', template = 'plotly_white')
+
+    fig_miles_cliente.update_layout(plot_bgcolor = 'rgba(255,158,110)', xaxis = (dict(showgrid = False)))
+
+    st.plotly_chart(fig_miles_cliente,use_container_width=True)
 
 elif menu == 'Modelo':
     Modelo()
