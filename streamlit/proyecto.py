@@ -126,10 +126,10 @@ def Modelo():
             elif model == 'PRECISION':
                 st.success(classify(precision_model.predict(df)))
         
-        st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
-
 
 menu = st.sidebar.selectbox("Selecciona la página", ['Home','Modelo','Filtros'])
+
+st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
 
 if menu == "Home":
     st.title("Predicciones Startups EEUU")
@@ -360,7 +360,6 @@ elif menu == "Filtros":
 
     st.plotly_chart(fig_miles_cliente,use_container_width=True)
 
-    st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
 
 elif menu == 'Modelo':
     Modelo()
