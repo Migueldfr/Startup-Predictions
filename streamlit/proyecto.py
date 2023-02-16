@@ -54,7 +54,7 @@ def classify(num):
         return 'Tiene toda la pinta de ser exitosa'
 
 def Modelo():
-        st.title('Pueba de nuestros modelos para dos tipos de clientes')
+        st.title('Prediciones de los modelos')
         st.sidebar.header('Paramentros personalizados')
         # Funcion para poner los parametros del sidebar
         def user_input_parameters():
@@ -78,7 +78,7 @@ def Modelo():
                 Has_roundABCD = 1
             if Has_roundABCD =='No':
                 Has_roundABCD = 0
-            funding_rounds = st.sidebar.slider('Numero de rondas', 0,10)
+            funding_rounds = st.sidebar.slider('Número de rondas', 0,10)
             has_roundB = st.sidebar.selectbox('Tiene la ronda B?', ('Sí', 'No'))
             if has_roundB == 'Sí':
                 has_roundB = 1
@@ -114,7 +114,7 @@ def Modelo():
 
         # Escoger el modelo preferido
         option = ['RECALL', 'PRECISION']
-        model = st.sidebar.selectbox('Which model you like to use?', option)
+        model = st.sidebar.selectbox('Que modelo quieres usar?', option)
 
         st.subheader('Parametros del cliente')
         st.subheader(model)
@@ -310,7 +310,7 @@ elif menu == "Filtros":
         st.subheader(f"US $ {total_fundings:,}")
 
     with right_column:
-        st.subheader('Numero de Top 500 :')
+        st.subheader('Número de Top 500 :')
         st.subheader(f" {is_top:}")
 
     st.markdown('---')
