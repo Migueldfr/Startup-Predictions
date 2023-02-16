@@ -125,6 +125,9 @@ def Modelo():
                 st.success(classify(recall_model.predict(df)))
             elif model == 'PRECISION':
                 st.success(classify(precision_model.predict(df)))
+        
+        st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
+
 
 menu = st.sidebar.selectbox("Selecciona la página", ['Home','Modelo','Filtros'])
 
@@ -356,6 +359,8 @@ elif menu == "Filtros":
                                 bargap=0.3)
 
     st.plotly_chart(fig_miles_cliente,use_container_width=True)
+
+    st.write("[Canva](https://www.canva.com/design/DAFaqYdUSNU/5F0lbZqn6a3EHTPs-ceMnw/view?utm_content=DAFaqYdUSNU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)")
 
 elif menu == 'Modelo':
     Modelo()
