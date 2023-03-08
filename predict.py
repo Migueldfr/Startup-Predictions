@@ -12,7 +12,7 @@ for x in os.listdir(cwd):
             loaded_model = pickle.load(archivo_entrada)
 
 
-X_test = pd.read_csv('X_test_precision.csv')
+X_test = pd.read_csv('data/X_test_precision.csv')
 
 # Predict results 
 
