@@ -4,15 +4,19 @@
 
 *Miguel De Frutos* - Estudiante del Bootcamp de Data Science en la escuela The Bridge - [Migueldfr](github.com/Migueldfr)
 
-A veces creamos en tener la pocima perfecta para saber si una empresa va a ser rentable o no, que engagement tiene, cuantos inversores tiene, cuanta cantidad de dinero le han sido invertida, rondas de financiacion...pero esto como todo, va despacio y necesita su tiempo de analisis.
+## Introduction
+Sometimes we believe we have the perfect potion to determine whether a company will be profitable or not. We analyze factors such as engagement, number of investors, amount of invested money, and financing rounds. However, like everything else, this process takes time and requires careful analysis.
 
-Despues de un divertido estudio y analisis de muchos de estos factores, puedo decir a que podenos llegar a saber mucho de una empresa antes de levantar el dedo y señalar en una direccion. Hay factores de los que ni siquiera tomamos en cuenta y muchos de los que creemos importantes, no lo son tanto.
+After a fun and in-depth study of many of these factors, I can say that we can learn a lot about a company before pointing in a direction. There are factors that we do not even consider and many that we believe are important, but they are not so much.
 
-Como en todos los negocios, hay varios perfiles de clientes y este analisis no va a ser menos, claramente podemos ver aquel que quiere dar con la empresa exitosa tras mucho analisis, no le importa el tiempo de estudio, lo unico que sabe es que apostara por la ganadora, hablaremos de *PRECISION*
+Like all businesses, there are several customer profiles, and this analysis is no exception. We can clearly see the one who wants to find the successful company after much analysis. They do not care about the study time, and all they know is that they will bet on the winner. This profile is called PRECISION.
 
-Por otro lado, hay un perfil claramente mas permisivo, y lo que quiere es tener a las posibles ganadoras en el punto de mira, pero no le importa seguir alguna que no sea ganadora pero que le haga aprender, y esto en terminos monetarios podriamos decir que es capaz de reducir su beneficio singular por seguir apostando por el conjunto de aquellas que pueden prosperar y las que seguro que van a ser gaandoras, aqui hablaremos del termino *RECALL*
+On the other hand, there is a more permissive profile that wants to have possible winners in their sights. They do not mind following a company that may not be a winner but can provide valuable learning opportunities. In monetary terms, this profile is capable of reducing its singular benefit by continuing to bet on the group of those that can prosper and those that are sure to be winners. This profile is called RECALL.
 
-Con esto he podido llegar a la conclusion que me han funcionado dos modelos de apredizaje supervisado, en uno; primo la recall, y en otro; la precision, como ya os he dicho en los apartados de arriba.
+Based on this, I have come to the conclusion that two supervised learning models work for me. In one, I prioritize recall, and in the other, I prioritize precision.
 
-Como todo analisis y estudio cuantos mas datos de CALIDAD tengas, mas productivo y beneficioso para tu modelo es, yo por mi parte voy a dejar abierto este estudio porque desde luego, tiene mucho mas que brindarnos y estoy seguro que nos servira de ayuda en muchos momentos de incertidumbre.
+## Data Quality
+Like all analysis and studies, the more quality data you have, the more productive and beneficial it is for your model. Therefore, I will keep this study open, as it has much more to offer, and I am sure it will be helpful in many moments of uncertainty.
 
+## Conclusion
+This project takes a curious spin on predicting startups. By using a combination of precision and recall, we can learn a lot about a company before deciding whether to invest. The more quality data we have, the more accurate our predictions will be. Let's continue to explore and learn from this exciting field.
